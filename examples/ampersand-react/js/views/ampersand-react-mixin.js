@@ -9,14 +9,15 @@ module.exports = {
                     self.forceUpdate();
                 }, self);
             } else if (prop.isCollection) {
-                prop.on('add remove sync sort reset', function () {
+                prop.on('add remove sync sort reset change', function () {
+                    console.log('Collection update', self);
                     self.forceUpdate();
                 }, self);
             }
         }
 
         for (key in this.props) {
-            register(this.props[key])               
+            register(this.props[key]);
         }
     },
     componentWillUnmount: function () {

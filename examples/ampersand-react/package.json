@@ -24,7 +24,7 @@
     "watchify": "^2.0.0"
   },
   "scripts": {
-    "build": "browserify js/app.js -t reactify -o todomvc.bundle.js",
-    "start": "watchify js/app.js -t reactify -o todomvc.bundle.js"
+    "build": "browserify js/app.js -t [reactify --es6] -o todomvc.bundle.js",
+    "start": "watchify js/app.js -t [reactify --es6] -o todomvc.bundle.js"
   }
 }

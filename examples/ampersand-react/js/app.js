@@ -1,9 +1,7 @@
 'use strict';
 
-var React = require('react');
-var MainView = require('./views/main.jsx');
 var Me = require('./models/me');
-var Router = require('./router');
+var Router = require('./router.jsx');
 
 
 window.app = {
@@ -14,7 +12,6 @@ window.app = {
 		// it's basically 'app state'.
 		this.me = new Me();
 		// Our main view
-		React.renderComponent(MainView(), document.getElementById('todoapp-wrapper'));
 
 		// Create and fire up the router
 		this.router = new Router();
