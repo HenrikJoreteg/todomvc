@@ -1,7 +1,8 @@
 'use strict';
 
+var MainView = require('./views/main');
 var Me = require('./models/me');
-var Router = require('./router.jsx');
+var Router = require('./router');
 
 
 window.app = {
@@ -12,7 +13,12 @@ window.app = {
 		// it's basically 'app state'.
 		this.me = new Me();
 		// Our main view
-
+		this.view = new MainView({
+			//el: document.body,
+			model: this.me
+		});
+        this.view.render();
+        document.body.appendChild(this.view.el);
 		// Create and fire up the router
 		this.router = new Router();
 		this.router.history.start();

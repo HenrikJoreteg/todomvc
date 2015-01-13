@@ -1,0 +1,36 @@
+div
+  section#todoapp
+    header#header
+      h1 todos
+      input(id='new-todo', placeholder='What needs to be done?', data-hook='todo-input', autofocus)
+
+    section#main(
+      style = !model.totalCount ? 'display: none' : ''
+    )
+      input(id='toggle-all', type='checkbox', data-hook='mark-all', checked=model.allCompleted)
+      label(for='toggle-all') Mark all as complete
+      ul(id='todo-list', data-hook='todo-container')
+
+    footer#footer(
+      style = !model.totalCount ? 'display: none' : ''
+    )
+      span(id='todo-count', data-hook='todo-count')!= model.itemsLeftHtml
+      ul#filters
+        li
+          a(href="#/", class=(model.mode == 'all' ? 'selected' : ''))
+            | All
+        li
+          a(href="#/active", class=(model.mode == 'active' ? 'selected' : ''))
+            | Active
+        li
+          a(href="#/completed", class=(model.mode == 'completed' ? 'selected' : ''))
+            | Completed
+
+      if model.completedCount > 0
+        button(id="clear-completed" data-hook="clear-completed")
+          | Clear completed (#{model.completedCount})
+
+  footer#info
+    p Double-click to edit a todo
+    p Written by <a href="https://twitter.com/henrikjoreteg">Henrik Joreteg</a>, <a href="https://twitter.com/lukekarrys">Luke Karrys</a>, and <a href="https://twitter.com/philip_roberts">Philip Roberts</a>
+    p Part of <a href="http://todomvc.com">TodoMVC</a>

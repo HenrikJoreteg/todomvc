@@ -10,21 +10,17 @@
     "ampersand-state": "^4.3.12",
     "ampersand-subcollection": "^1.4.5",
     "ampersand-view": "^7.1.4",
-    "debounce": "^1.0.0",
-    "react": "^0.11.2",
-    "react-backbone-events-mixin": "^0.1.1",
-    "reactify": "^0.14.0",
-    "shortid": "^2.1.2"
+    "ampersand-virtual-dom-mixin": "^0.1.2",
+    "debounce": "^1.0.0"
   },
   "devDependencies": {
-    "browserify": "^6.1.0",
+    "browserify": "5.10.1",
     "jade": "^1.7.0",
     "jadeify": "^2.7.0",
-    "reactify": "^0.14.1",
     "watchify": "^2.0.0"
   },
   "scripts": {
-    "build": "browserify js/app.js -t [reactify --es6] -o todomvc.bundle.js",
-    "start": "watchify js/app.js -t [reactify --es6] -o todomvc.bundle.js"
+    "build": "browserify js/app.js -t jadeify -o todomvc.bundle.js",
+    "start": "watchify js/app.js -t jadeify -o todomvc.bundle.js"
   }
 }

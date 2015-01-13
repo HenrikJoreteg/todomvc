@@ -3,12 +3,12 @@
 
 var React = require('react');
 var TodoComponent = require('./todo.jsx');
-var mixin = require('./ampersand-react-mixin');
+var ampersandMixin = require('./ampersand-react-mixin');
 var ENTER_KEY = 13;
 
 
 module.exports = React.createClass({
-	mixins: [mixin],
+	mixins: [ampersandMixin],
 	getInitialState: function () {
 		this.props = {
 			me: app.me,

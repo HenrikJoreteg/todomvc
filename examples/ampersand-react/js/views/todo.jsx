@@ -25,7 +25,7 @@ module.exports = React.createClass({
 			return (
 				<li onDoubleClick={this.handleDoubleClick}>
 					<div className="view">
-						<input type="checkbox" className="toggle" />
+						<input type="checkbox" className="toggle" checked={todo.completed} onChange={this.completeTodo}/>
 						<label>{todo.title}</label>
 						<button className="destroy" onClick={this.handleDestroyClick}></button>
 					</div>
@@ -33,6 +33,9 @@ module.exports = React.createClass({
 			)
 		}
 	},
+    completeTodo: function (e) {
+        this.props.todo.completed = e.target.checked;
+    },
 	handleDestroyClick: function () {
 		this.props.todo.destroy();
 	},
