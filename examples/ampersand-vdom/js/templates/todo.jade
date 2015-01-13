@@ -1,0 +1,11 @@
+li(
+  class=model.editing ? 'editing' : '',
+  class=model.completed ? 'completed' : ''
+)
+  if !model.editing
+    .view
+      input.toggle(type="checkbox", data-hook="checkbox", checked=model.completed)
+      label(data-hook="title")= model.title
+      button.destroy(data-hook="action-delete")
+  else
+    input.edit(data-hook="input", value=model.title)
